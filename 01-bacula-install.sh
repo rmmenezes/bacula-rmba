@@ -11,17 +11,19 @@ sudo yum install -y bacula-director bacula-storage bacula-console bacula-client 
 echo "Iniciando serviço do mariabd (Mysql)"
 sudo systemctl start mariadb
 
-/usr/libexec/bacula/grant_mysql_privileges
-/usr/libexec/bacula/create_mysql_database -u root
-/usr/libexec/bacula/make_mysql_tables -u bacula
+sudo /usr/libexec/bacula/grant_mysql_privileges
+sudo /usr/libexec/bacula/create_mysql_database -u root
+sudo /usr/libexec/bacula/make_mysql_tables -u bacula
 
-mysql -e "UPDATE mysql.user SET Password = PASSWORD('password') WHERE User = 'root'"
-
+mysql --execute="UPDATE mysql.user SET Password = PASSWORD('password') WHERE User = 'root'"
 mysql --user="root" --password="password" --execute="UPDATE mysql.user SET Password=PASSWORD('bacula') WHERE User='bacula';"
 mysql --user="root" --password="password" --execute="FLUSH PRIVILEGES;"
 
 echo "Habilitando serviço do mariabd (Mysql)"
 sudo systemctl enable mariadb
+mysql --execute="UPDATE mysql.user SET Password = PASSWORD('password') WHERE User = 'root'"
+mysql --user="root" --password="password" --execute="UPDATE mysql.user SET Password=PASSWORD('bacula') WHERE User='bacula';"
+mysql --user="root" --password="password" --execute="FLUSH PRIVILEGES;"
 
 echo "Escolher o MySql como padrao (1)"
 alternatives --set libbaccats.so /usr/lib64/libbaccats-mysql.so
