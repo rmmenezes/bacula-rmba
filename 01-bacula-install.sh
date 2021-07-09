@@ -42,15 +42,6 @@ enabled=1" > /etc/yum.repos.d/baculum.repo
 yum install -y baculum-common baculum-api baculum-api-httpd baculum-web baculum-web-httpd -y
 yum install baculum-api-selinux -y
 
-echo "Defaults:apache "'!'"requiretty
-apache  ALL=NOPASSWD:  /usr/sbin/bconsole
-apache  ALL=NOPASSWD:  /usr/sbin/bdirjson
-apache  ALL=NOPASSWD:  /usr/sbin/bsdjson
-apache  ALL=NOPASSWD:  /usr/sbin/bfdjson
-apache  ALL=NOPASSWD:  /usr/sbin/bbconsjson" > /etc/sudoers.d/baculum
-
-chown -R apache /opt/bacula/etc
-
 firewall-cmd --permanent --zone=public --add-port=9095-9096/tcp
 firewall-cmd --reload
 
