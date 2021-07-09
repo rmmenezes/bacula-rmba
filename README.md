@@ -4,11 +4,11 @@
 
 É esperado que ao final da instalação de todos os scipts corretamente, obtenha um ambiente funcional do Bacula e Baculum no sistema operacional Centos 8.
 
-O que é feito em cada script?:
+### O que é feito em cada script?:
 
 Script -> 01-bacula-install.sh: Instala o bacula, baculum e todos os requisitos de instalação necessários como exemplo MySQL.
 
-Script -> 02-bacula-configure-files.sh: Subistiui os arquivos de configuração do bacula pelo os arquivos de configuração já configurados e disponíveis neste repositório no diretório "conf"
+Script -> 02-bacula-configure-files.sh: Subistiui os arquivos de configuração do bacula pelo os arquivos de configuração disponíveis neste repositório no diretório "conf"
 
 Script -> 03-bacula-restart-all.sh: Este script realiza o "restart" de todos os serviços do bacula
 
