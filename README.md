@@ -2,8 +2,6 @@
 
 # Manual de Execução dos Scripts 
 
-Para que serve este script?:
-
 É esperado que ao final da instalação de todos os scipts corretamente, obtenha um ambiente funcional do Bacula e Baculum no sistema operacional Centos 8.
 
 O que é feito em cada script?:
