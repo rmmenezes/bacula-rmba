@@ -66,3 +66,5 @@ cd bacula-rmba
 ./03-bacula-restart-all.sh
 ```
 ---
+
+### FIM :heavy_check_mark:
